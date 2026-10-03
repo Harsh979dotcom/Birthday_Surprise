@@ -1,56 +1,528 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-    <title>For You ❤️</title>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>For My Special Person ❤️</title>
 
     <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
         body {
             margin: 0;
             min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background: linear-gradient(135deg, #ff0844, #ffb199);
-            font-family: Georgia, serif;
+
+            background:
+                radial-gradient(
+                    circle at top,
+                    #ffd1dc,
+                    transparent 45%
+                ),
+                linear-gradient(
+                    135deg,
+                    #ff758c,
+                    #ff7eb3,
+                    #ff9a9e
+                );
+
+            font-family: Georgia, "Times New Roman", serif;
+
             color: white;
             text-align: center;
+
+            overflow-x: hidden;
         }
+
+        /* Main glass box */
 
         .box {
-            max-width: 600px;
-            padding: 40px;
+            width: 90%;
+            max-width: 700px;
+
+            margin: 30px auto;
+            padding: 35px 20px;
+
+            background: rgba(255, 255, 255, 0.16);
+
+            border: 1px solid rgba(255, 255, 255, 0.3);
+
+            border-radius: 30px;
+
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+
+            box-shadow:
+                0 20px 50px rgba(0, 0, 0, 0.2);
         }
+
+        /* Birthday emoji */
+
+        .birthday {
+            font-size: 55px;
+
+            margin-bottom: 10px;
+
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+
+            0%, 100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        /* Main heading */
 
         h1 {
-            font-size: 45px;
+            font-size: 42px;
+
+            margin-bottom: 25px;
+
+            text-shadow:
+                0 3px 10px rgba(0, 0, 0, 0.2);
         }
 
+        /* Paragraphs */
+
         p {
-            font-size: 21px;
-            line-height: 1.7;
+            font-size: 20px;
+
+            line-height: 1.8;
+
+            margin: 25px auto;
+
+            max-width: 620px;
         }
+
+        /* Photo gallery */
+
+        .gallery {
+            display: flex;
+
+            flex-direction: column;
+
+            align-items: center;
+
+            gap: 18px;
+
+            margin: 40px 0;
+        }
+
+        /* Photos */
+
+        .photo {
+            width: 92%;
+            max-width: 500px;
+
+            border-radius: 25px;
+
+            border:
+                4px solid
+                rgba(255, 255, 255, 0.8);
+
+            box-shadow:
+                0 15px 35px
+                rgba(0, 0, 0, 0.3);
+
+            opacity: 0;
+
+            transform:
+                translateY(40px)
+                scale(0.95);
+
+            animation:
+                photoAppear 1.5s ease forwards;
+        }
+
+        /* Photo animation timing */
+
+        .photo:nth-of-type(1) {
+            animation-delay: 0.4s;
+        }
+
+        .photo:nth-of-type(2) {
+            animation-delay: 1.2s;
+        }
+
+        .photo:nth-of-type(3) {
+            animation-delay: 2s;
+        }
+
+        @keyframes photoAppear {
+
+            from {
+                opacity: 0;
+
+                transform:
+                    translateY(40px)
+                    scale(0.95);
+            }
+
+            to {
+                opacity: 1;
+
+                transform:
+                    translateY(0)
+                    scale(1);
+            }
+        }
+
+        /* Text below photos */
+
+        .memory {
+            font-size: 18px;
+
+            font-style: italic;
+
+            margin-top: 0;
+            margin-bottom: 25px;
+
+            opacity: 0.95;
+        }
+
+        /* Final section */
+
+        .final-message {
+            margin-top: 45px;
+
+            padding:
+                30px 15px;
+
+            border-top:
+                1px solid
+                rgba(255, 255, 255, 0.4);
+        }
+
+        .final-message h2 {
+            font-size: 30px;
+
+            line-height: 1.5;
+
+            text-shadow:
+                0 3px 10px
+                rgba(0, 0, 0, 0.2);
+        }
+
+        /* Big heart */
+
+        .love {
+            font-size: 50px;
+
+            margin-top: 20px;
+
+            animation:
+                heartbeat 1.5s infinite;
+        }
+
+        @keyframes heartbeat {
+
+            0% {
+                transform: scale(1);
+            }
+
+            25% {
+                transform: scale(1.15);
+            }
+
+            40% {
+                transform: scale(1);
+            }
+
+            60% {
+                transform: scale(1.15);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        /* Floating hearts */
+
+        .heart {
+            position: fixed;
+
+            bottom: -40px;
+
+            pointer-events: none;
+
+            z-index: 100;
+
+            animation:
+                floatHeart 5s linear forwards;
+        }
+
+        @keyframes floatHeart {
+
+            0% {
+                transform:
+                    translateY(0)
+                    rotate(0deg);
+
+                opacity: 1;
+            }
+
+            100% {
+                transform:
+                    translateY(-110vh)
+                    rotate(360deg);
+
+                opacity: 0;
+            }
+        }
+
+        /* Mobile phone */
+
+        @media (max-width: 600px) {
+
+            .box {
+                width: 92%;
+
+                margin: 20px auto;
+
+                padding: 30px 15px;
+            }
+
+            h1 {
+                font-size: 32px;
+            }
+
+            p {
+                font-size: 17px;
+
+                line-height: 1.7;
+            }
+
+            .birthday {
+                font-size: 45px;
+            }
+
+            .photo {
+                width: 95%;
+
+                border-radius: 20px;
+
+                border-width: 3px;
+            }
+
+            .memory {
+                font-size: 16px;
+            }
+
+            .final-message h2 {
+                font-size: 23px;
+            }
+
+            .love {
+                font-size: 40px;
+            }
+        }
+
     </style>
+
 </head>
+
 
 <body>
 
+
 <div class="box">
 
-    <h1>For My Special Person ❤️</h1>
 
-    <p>Happy Birthday, my Cutieee ❤️🎂✨, 
-        2/10/2012 will always be special because it’s the day my favorite person was born.
+    <!-- Birthday decoration -->
+
+    <div class="birthday">
+        🎂🎉❤️
+    </div>
+
+
+    <!-- Main heading -->
+
+    <h1>
+        For My Special Person ❤️
+    </h1>
+
+
+    <!-- First birthday paragraph -->
+
+    <p>
+
+        Happy Birthday, my Cutieee ❤️🎂✨,
+
+        <br><br>
+
+        2/10/2012 will always be special
+        because it’s the day my favorite person
+        was born.
+
     </p>
 
-    <p>You bring so much happiness and love into my life, and I’m truly grateful for every moment with you. 
-        I just want to see you smiling always, because your smile means everything to me. 😘💞
-         May all your dreams come true and may you always be surrounded by love and happiness. 🎀🦋
-        Happy Birthday, my love! 👑❤️ I love youuu endlessly! 
-            </p>
 
-    <h2>I love you so so so so so much sweetheart ❤️</h2>
+    <!-- THREE PHOTOS -->
+
+    <div class="gallery">
+
+
+        <!-- PHOTO 1 -->
+
+        <img
+            src="images/photo1.jpg"
+            alt="A special memory"
+            class="photo"
+        >
+
+        <p class="memory">
+            One of my favorite memories with you ❤️
+        </p>
+
+
+        <!-- PHOTO 2 -->
+
+        <img
+            src="images/photo2.jpg"
+            alt="A beautiful memory"
+            class="photo"
+        >
+
+        <p class="memory">
+            A moment I'll always remember 🦋
+        </p>
+
+
+        <!-- PHOTO 3 -->
+
+        <img
+            src="images/photo3.jpg"
+            alt="A precious memory"
+            class="photo"
+        >
+
+        <p class="memory">
+            You make every moment special 💞
+        </p>
+
+
+    </div>
+
+
+    <!-- Second birthday paragraph -->
+
+    <p>
+
+        You bring so much happiness and love
+        into my life, and I’m truly grateful
+        for every moment with you.
+
+        <br><br>
+
+        I just want to see you smiling always,
+        because your smile means everything to me. 😘💞
+
+        <br><br>
+
+        May all your dreams come true and may you
+        always be surrounded by love and happiness. 🎀🦋
+
+        <br><br>
+
+        Happy Birthday, my love! 👑❤️
+
+        <br><br>
+
+        I love youuu endlessly!
+
+    </p>
+
+
+    <!-- Final message -->
+
+    <div class="final-message">
+
+        <h2>
+            I love you so so so so so much
+            sweetheart ❤️
+        </h2>
+
+        <div class="love">
+            ❤️
+        </div>
+
+    </div>
+
 
 </div>
 
+
+<script>
+
+    /* Create floating hearts */
+
+    function createHeart() {
+
+        const heart =
+            document.createElement("div");
+
+        heart.className = "heart";
+
+        const hearts = [
+            "❤️",
+            "💕",
+            "💗",
+            "💖",
+            "💞",
+            "💓"
+        ];
+
+        heart.innerHTML =
+            hearts[
+                Math.floor(
+                    Math.random() * hearts.length
+                )
+            ];
+
+        heart.style.left =
+            Math.random() * 100 + "vw";
+
+        heart.style.fontSize =
+            (15 + Math.random() * 25) + "px";
+
+        heart.style.animationDuration =
+            (4 + Math.random() * 4) + "s";
+
+        document.body.appendChild(heart);
+
+
+        setTimeout(function() {
+
+            heart.remove();
+
+        }, 8000);
+
+    }
+
+
+    /* Keep creating hearts */
+
+    setInterval(
+        createHeart,
+        600
+    );
+
+</script>
+
+
 </body>
+
 </html>
